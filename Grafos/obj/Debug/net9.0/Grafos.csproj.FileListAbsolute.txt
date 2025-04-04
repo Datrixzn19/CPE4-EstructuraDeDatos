@@ -12,3 +12,4 @@
 /home/datrixzn19/Desktop/CPE4-EstructuraDeDatos/Grafos/obj/Debug/net9.0/Grafos.pdb
 /home/datrixzn19/Desktop/CPE4-EstructuraDeDatos/Grafos/obj/Debug/net9.0/Grafos.genruntimeconfig.cache
 /home/datrixzn19/Desktop/CPE4-EstructuraDeDatos/Grafos/obj/Debug/net9.0/ref/Grafos.dll
+/home/datrixzn19/Desktop/CPE4-EstructuraDeDatos/Grafos/obj/Debug/net9.0/Grafos.sourcelink.json
