@@ -1,0 +1,198 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace GraficaDeGrafos
+{
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Crear y configurar el grafo de amigos
+            Grafo grafoAmigos = new Grafo();
+            CrearGrafoAmigos(grafoAmigos);
+            
+            // Crear y configurar el grafo de empresas
+            Grafo grafoEmpresas = new Grafo();
+            CrearGrafoEmpresas(grafoEmpresas);
+            
+            // Menú principal
+            bool salir = false;
+            while (!salir)
+            {
+
+                Console.WriteLine("=== VISUALIZADOR DE GRAFOS ===");
+                Console.WriteLine("1. Mostrar grafo N.1");
+                Console.WriteLine("2. Mostrar grafo N.2");
+                Console.WriteLine("3. Salir");
+                Console.Write("Seleccione una opción: ");
+                
+                string opcion = Console.ReadLine();
+                
+                switch (opcion)
+                {
+                    case "1":
+                        MostrarGrafoAmigos(grafoAmigos);
+                        break;
+                    case "2":
+                        MostrarGrafoEmpresas(grafoEmpresas);
+                        break;
+                    case "3":
+                        salir = true;
+                        break;
+                    default:
+                        Console.WriteLine("Opción inválida. Presione cualquier tecla para continuar...");
+                        Console.ReadKey();
+                        break;
+                }
+            }
+            
+            Console.WriteLine("Cerrando el programa.....");
+        }
+        
+        static void CrearGrafoAmigos(Grafo grafo)
+        {
+            // Nodos con nombres randoms
+            grafo.AgregarNodo("Carlitos");
+            grafo.AgregarNodo("Ana");
+            grafo.AgregarNodo("Luis");
+            grafo.AgregarNodo("María");
+            grafo.AgregarNodo("Pedro");
+            grafo.AgregarNodo("Laura");
+            
+            // Agregar conexiones, puede representar amistades o familiares por ej.
+            grafo.AgregarConexion("Carlitos", "Ana");
+            grafo.AgregarConexion("Carlitos", "Luis");
+            grafo.AgregarConexion("Ana", "María");
+            grafo.AgregarConexion("Luis", "Pedro");
+            grafo.AgregarConexion("María", "Pedro");
+            grafo.AgregarConexion("María", "Laura");
+            grafo.AgregarConexion("Pedro", "Laura");
+        }
+        
+        static void CrearGrafoEmpresas(Grafo grafo)
+        {
+            //Agrego nodos de nombres de empresas
+            grafo.AgregarNodo("Google");
+            grafo.AgregarNodo("Microsoft");
+            grafo.AgregarNodo("Xiaomi");
+            grafo.AgregarNodo("Asus");
+            grafo.AgregarNodo("Motorola");
+            grafo.AgregarNodo("Sony");
+            grafo.AgregarNodo("CloudFlare");
+            
+            // Conexiones de la empresas
+            grafo.AgregarConexion("Google", "Microsoft");
+            grafo.AgregarConexion("Google", "Asus");
+            grafo.AgregarConexion("Microsoft", "Xiaomi");
+            grafo.AgregarConexion("Xiaomi", "Motorola");
+            grafo.AgregarConexion("Asus", "Sony");
+            grafo.AgregarConexion("Motorola", "CloudFlare");
+            grafo.AgregarConexion("Sony", "CloudFlare");
+            grafo.AgregarConexion("Google", "Motorola");
+        }
+        
+        static void MostrarGrafoAmigos(Grafo grafo)
+        {
+            Console.WriteLine("||||||||| GRAFO 1 |||||||||\n");
+            Console.WriteLine("Representación en lista de adyacencia:");
+            grafo.MostrarGrafo();
+            grafo.VisualizarGrafo();
+        }
+        
+        static void MostrarGrafoEmpresas(Grafo grafo)
+        {
+            Console.WriteLine("||||||||| GRAFO 2 |||||||||\n");
+            Console.WriteLine("Representación en lista de adyacencia:");
+            grafo.MostrarGrafo();
+            grafo.VisualizarGrafo();
+           
+        }
+    }
+
+    // Clase para representar un grafo
+    class Grafo
+    {
+        private Dictionary<string, List<string>> listaAdyacencia;
+        
+        public Grafo()
+        {
+            listaAdyacencia = new Dictionary<string, List<string>>();
+        }
+        
+        // Agregar un nodo al grafo
+        public void AgregarNodo(string nodo)
+        {
+            if (!listaAdyacencia.ContainsKey(nodo))
+            {
+                listaAdyacencia[nodo] = new List<string>();
+            }
+        }
+        
+        // Agregar una conexión entre dos nodos
+        public void AgregarConexion(string origen, string destino)
+        {
+            // Asegurarse que ambos nodos existan
+            AgregarNodo(origen);
+            AgregarNodo(destino);
+            
+            // Agregar la conexión (se asume que es bidireccional)
+            if (!listaAdyacencia[origen].Contains(destino))
+            {
+                listaAdyacencia[origen].Add(destino);
+            }
+            
+            if (!listaAdyacencia[destino].Contains(origen))
+            {
+                listaAdyacencia[destino].Add(origen);
+            }
+        }
+        
+        // Mostrar el grafo
+        public void MostrarGrafo()
+        {
+            foreach (var nodo in listaAdyacencia.Keys)
+            {
+                Console.Write($"{nodo} está conectado a: ");
+                
+                if (listaAdyacencia[nodo].Count == 0)
+                {
+                    Console.WriteLine("ningún nodo");
+                }
+                else
+                {
+                    Console.WriteLine(string.Join(", ", listaAdyacencia[nodo]));
+                }
+            }
+        }
+
+        // Obtener todos los nodos del grafo
+        public List<string> ObtenerNodos()
+        {
+            return listaAdyacencia.Keys.ToList();
+        }
+
+        // Visualizar el grafo de manera gráfica (ASCII simple)
+        public void VisualizarGrafo()
+        {
+            Console.WriteLine("\nRepresentación gráfica del grafo:\n");
+            
+            // Dibujar cada nodo y sus conexiones
+            foreach (var nodo in listaAdyacencia.Keys)
+            {
+                Console.WriteLine();
+                Console.WriteLine($"{nodo} tiene conexión con:");
+                
+                foreach (var conexion in listaAdyacencia[nodo])
+                {
+                    Console.WriteLine($"|");
+                    Console.WriteLine($"|---> {conexion}");
+                }
+                
+                Console.WriteLine();
+            }
+        }
+    }
+
+}

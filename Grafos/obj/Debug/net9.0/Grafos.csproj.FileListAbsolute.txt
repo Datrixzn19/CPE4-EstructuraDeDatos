@@ -1,0 +1,14 @@
+/home/datrixzn19/Desktop/CPE4-EstructuraDeDatos/Grafos/bin/Debug/net9.0/Grafos
+/home/datrixzn19/Desktop/CPE4-EstructuraDeDatos/Grafos/bin/Debug/net9.0/Grafos.deps.json
+/home/datrixzn19/Desktop/CPE4-EstructuraDeDatos/Grafos/bin/Debug/net9.0/Grafos.runtimeconfig.json
+/home/datrixzn19/Desktop/CPE4-EstructuraDeDatos/Grafos/bin/Debug/net9.0/Grafos.dll
+/home/datrixzn19/Desktop/CPE4-EstructuraDeDatos/Grafos/bin/Debug/net9.0/Grafos.pdb
+/home/datrixzn19/Desktop/CPE4-EstructuraDeDatos/Grafos/obj/Debug/net9.0/Grafos.GeneratedMSBuildEditorConfig.editorconfig
+/home/datrixzn19/Desktop/CPE4-EstructuraDeDatos/Grafos/obj/Debug/net9.0/Grafos.AssemblyInfoInputs.cache
+/home/datrixzn19/Desktop/CPE4-EstructuraDeDatos/Grafos/obj/Debug/net9.0/Grafos.AssemblyInfo.cs
+/home/datrixzn19/Desktop/CPE4-EstructuraDeDatos/Grafos/obj/Debug/net9.0/Grafos.csproj.CoreCompileInputs.cache
+/home/datrixzn19/Desktop/CPE4-EstructuraDeDatos/Grafos/obj/Debug/net9.0/Grafos.dll
+/home/datrixzn19/Desktop/CPE4-EstructuraDeDatos/Grafos/obj/Debug/net9.0/refint/Grafos.dll
+/home/datrixzn19/Desktop/CPE4-EstructuraDeDatos/Grafos/obj/Debug/net9.0/Grafos.pdb
+/home/datrixzn19/Desktop/CPE4-EstructuraDeDatos/Grafos/obj/Debug/net9.0/Grafos.genruntimeconfig.cache
+/home/datrixzn19/Desktop/CPE4-EstructuraDeDatos/Grafos/obj/Debug/net9.0/ref/Grafos.dll
